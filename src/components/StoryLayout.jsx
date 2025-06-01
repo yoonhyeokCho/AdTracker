@@ -46,7 +46,7 @@ const StoryLayout = ({ stories }) => {
   return (
     <div className="flex flex-row items-center justify-center gap-[3vw] h-screen bg-black">
       {/* 스토리 카드 */}
-      <div className="relative w-[25vw] aspect-[9/16] rounded-2xl overflow-hidden border-[0.5vw] border-white bg-black">
+      <div className="relative w-[90vw] max-w-[360px] aspect-[9/16] rounded-xl overflow-hidden border border-white bg-black">
         {/* 프로그레스바 */}
         <div className="absolute top-[0.8vw] left-[1vw] right-[1vw] h-[0.3vw] bg-white/30 z-10">
           <div ref={progressRef} className="h-full bg-white animate-progress" />

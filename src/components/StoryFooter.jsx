@@ -1,11 +1,14 @@
 const StoryFooter = ({ username }) => {
   return (
-    <div className="absolute bottom-0 left-0 w-full px-4 py-3 bg-gradient-to-t from-black via-transparent to-transparent flex justify-between items-center">
+    <div className="absolute bottom-0 left-0 w-full px-3 py-2 bg-gradient-to-t from-black via-transparent to-transparent flex justify-between items-center gap-2">
+      {/* 답장 입력창 */}
       <input
-        className="w-3/4 px-3 py-2 text-sm rounded-full bg-white bg-opacity-20 text-white placeholder:text-white placeholder:opacity-70 outline-none"
+        className="flex-1 px-3 py-2 text-sm rounded-full bg-white bg-opacity-20 text-white placeholder:text-white placeholder:opacity-70 outline-none"
         placeholder={`${username} 답장하기...`}
       />
-      <div className="flex gap-3 items-center">
+
+      {/* 아이콘들 */}
+      <div className="flex gap-2 items-center shrink-0">
         {/* 하트 아이콘 */}
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -13,7 +16,7 @@ const StoryFooter = ({ username }) => {
           viewBox="0 0 24 24"
           strokeWidth={2}
           stroke="currentColor"
-          className="w-6 h-6 text-white"
+          className="w-5 h-5 text-white"
         >
           <path
             strokeLinecap="round"
@@ -25,7 +28,7 @@ const StoryFooter = ({ username }) => {
         {/* 공유 아이콘 */}
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          className="w-6 h-6 text-white"
+          className="w-5 h-5 text-white"
           fill="none"
           viewBox="0 0 24 24"
           strokeWidth={2}
