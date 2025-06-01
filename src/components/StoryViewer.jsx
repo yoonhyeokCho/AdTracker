@@ -9,12 +9,15 @@ const StoryViewer = ({ username, profileImg, contentImg, time }) => {
         alt="story"
       />
 
-      {/* 상단 프로필 */}
-      <div className="absolute top-3 left-3 flex items-center gap-2 text-white text-sm z-10">
-        <img src={profileImg} className="w-8 h-8 rounded-full" alt="profile" />
+      <div className="absolute top-3 left-3 flex items-center gap-2 text-white text-xs sm:text-sm md:text-base z-10">
+        <img
+          src={profileImg}
+          className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 rounded-full"
+          alt="profile"
+        />
         <div>
-          <div className="font-semibold">{username}</div>
-          <div className="text-xs opacity-80">{time}</div>
+          <div className="font-semibold text-sm sm:text-base">{username}</div>
+          <div className="text-[10px] sm:text-xs opacity-80">{time}</div>
         </div>
       </div>
 

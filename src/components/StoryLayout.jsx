@@ -37,6 +37,13 @@ const StoryLayout = ({ stories }) => {
   const current = shuffledStories[currentIndex];
   const next = shuffledStories[currentIndex + 1];
 
+  useEffect(() => {
+    if (next?.contentImg) {
+      const img = new Image();
+      img.src = next.contentImg;
+    }
+  }, [next]);
+
   const goNext = () => {
     if (currentIndex < shuffledStories.length - 1) {
       setCurrentIndex((prev) => prev + 1);
