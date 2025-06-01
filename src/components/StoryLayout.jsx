@@ -44,11 +44,11 @@ const StoryLayout = ({ stories }) => {
   };
 
   return (
-    <div className="flex flex-row items-center justify-center gap-[3vw] h-screen bg-black">
-      {/* 스토리 카드 */}
-      <div className="relative w-[80vw] max-w-[320px] aspect-[9/16] rounded-xl overflow-hidden border border-white bg-black shadow-lg mx-auto my-8">
+    <div className="flex flex-row items-center justify-center gap-[4vw] h-screen bg-black">
+      {/* 본 스토리 카드 */}
+      <div className="relative w-[65vw] max-w-[280px] aspect-[9/16] rounded-2xl overflow-hidden border border-white bg-black shadow-lg">
         {/* 프로그레스바 */}
-        <div className="absolute top-[0.8vw] left-[1vw] right-[1vw] h-[0.3vw] bg-white/30 z-10">
+        <div className="absolute top-2 left-3 right-3 h-[0.4vw] bg-white/30 z-10">
           <div ref={progressRef} className="h-full bg-white animate-progress" />
         </div>
 
@@ -69,17 +69,19 @@ const StoryLayout = ({ stories }) => {
         )}
       </div>
 
-      {/* 다음 콘텐츠 썸네일 */}
-      <div className="relative flex flex-col items-center justify-center">
-        {next && (
+      {/* 다음 콘텐츠 preview */}
+      {next && (
+        <div
+          className="w-[40vw] max-w-[160px] aspect-[9/16] rounded-xl overflow-hidden cursor-pointer border border-white shadow-md"
+          onClick={goNext}
+        >
           <StoryPreview
             username={next.username}
             profileImg={next.profileImg}
             contentImg={next.contentImg}
-            onClick={goNext}
           />
-        )}
-      </div>
+        </div>
+      )}
     </div>
   );
 };
