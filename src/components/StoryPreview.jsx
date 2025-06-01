@@ -9,7 +9,7 @@ const StoryPreview = ({
 }) => {
   return (
     <div
-      className={`relative w-[14vw] aspect-[9/16] rounded-xl overflow-hidden shadow-lg cursor-pointer border-2 transition-all duration-200 ${
+      className={`relative w-[16vw] aspect-[9/16] rounded-xl overflow-hidden shadow-lg cursor-pointer border-2 transition-all duration-200 ${
         isActive
           ? "border-white scale-105"
           : "border-transparent opacity-50 hover:opacity-100"
