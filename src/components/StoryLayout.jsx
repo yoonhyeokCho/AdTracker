@@ -1,3 +1,4 @@
+// StoryLayout.jsx
 import { useState, useMemo, useEffect, useRef } from "react";
 import StoryViewer from "./StoryViewer";
 import StoryPreview from "./StoryPreview";
@@ -7,7 +8,6 @@ const StoryLayout = ({ stories }) => {
   const shuffledStories = useMemo(() => {
     const storyList = stories.filter((item) => item.type === "story");
     const adList = stories.filter((item) => item.type === "ad");
-
     const result = [...storyList];
     adList.forEach((ad) => {
       const insertIndex = Math.floor(Math.random() * (result.length + 1));
@@ -37,22 +37,13 @@ const StoryLayout = ({ stories }) => {
   const current = shuffledStories[currentIndex];
   const next = shuffledStories[currentIndex + 1];
 
-  const goNext = () => {
-    if (currentIndex < shuffledStories.length - 1) {
-      setCurrentIndex((prev) => prev + 1);
-    }
-  };
-
   return (
-    <div className="flex flex-row items-center justify-center gap-[3vw] min-h-screen bg-black">
-      {/* 스토리 카드 */}
-      <div className="relative w-[40vw] max-w-[320px] aspect-[9/16] max-h-[90vh] rounded-2xl overflow-hidden border-[0.5vw] border-white bg-black">
-        {/* 프로그레스바 */}
-        <div className="absolute top-[0.8vw] left-[1vw] right-[1vw] h-[0.3vw] bg-white/30 z-10">
+    <div className="flex flex-col md:flex-row items-center justify-center gap-6 min-h-screen bg-black px-4 py-6">
+      <div className="relative w-full max-w-[360px] aspect-[9/16] rounded-2xl overflow-hidden border-2 border-white bg-black">
+        <div className="absolute top-2 left-2 right-2 h-1 bg-white/30 z-10">
           <div ref={progressRef} className="h-full bg-white animate-progress" />
         </div>
 
-        {/* 콘텐츠 */}
         {current?.type === "ad" ? (
           <AdViewer
             id={current.id}
@@ -69,17 +60,16 @@ const StoryLayout = ({ stories }) => {
         )}
       </div>
 
-      {/* 다음 콘텐츠 썸네일 */}
-      <div className="relative flex flex-col items-center justify-center">
-        {next && (
+      {next && (
+        <div className="hidden md:flex flex-col items-center justify-center">
           <StoryPreview
             username={next.username}
             profileImg={next.profileImg}
             contentImg={next.contentImg}
-            onClick={goNext}
+            onClick={() => setCurrentIndex((prev) => prev + 1)}
           />
-        )}
-      </div>
+        </div>
+      )}
     </div>
   );
 };
