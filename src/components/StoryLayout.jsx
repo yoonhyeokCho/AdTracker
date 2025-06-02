@@ -1,4 +1,3 @@
-// StoryLayout.jsx
 import { useState, useMemo, useEffect, useRef } from "react";
 import StoryViewer from "./StoryViewer";
 import StoryPreview from "./StoryPreview";
@@ -19,11 +18,16 @@ const StoryLayout = ({ stories }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const progressRef = useRef(null);
 
+  const current = shuffledStories[currentIndex];
+  const next = shuffledStories[currentIndex + 1];
+
   useEffect(() => {
     if (!progressRef.current) return;
-    progressRef.current.classList.remove("animate-progress");
+
+    // Restart animation
+    progressRef.current.style.animation = "none";
     void progressRef.current.offsetWidth;
-    progressRef.current.classList.add("animate-progress");
+    progressRef.current.style.animation = "progressBar 10s linear forwards";
 
     const timer = setTimeout(() => {
       if (currentIndex < shuffledStories.length - 1) {
@@ -34,16 +38,19 @@ const StoryLayout = ({ stories }) => {
     return () => clearTimeout(timer);
   }, [currentIndex, shuffledStories.length]);
 
-  const current = shuffledStories[currentIndex];
-  const next = shuffledStories[currentIndex + 1];
-
   return (
-    <div className="flex flex-col md:flex-row items-center justify-center gap-6 min-h-screen bg-black px-4 py-6">
-      <div className="relative w-full max-w-[360px] aspect-[9/16] rounded-2xl overflow-hidden border-2 border-white bg-black">
-        <div className="absolute top-2 left-2 right-2 h-1 bg-white/30 z-10">
-          <div ref={progressRef} className="h-full bg-white animate-progress" />
+    <div className="w-screen max-w-[420px] sm:max-w-[480px] lg:max-w-[520px] xl:max-w-[600px] mx-auto flex justify-between items-center gap-3 px-2 py-6 min-h-screen bg-black">
+      {/* 메인 스토리 카드 */}
+      <div className="w-[68%] aspect-[9/16] rounded-2xl overflow-hidden border-2 border-white bg-black relative">
+        {/* 인스타처럼 상단 바 살짝 아래 */}
+        <div className="absolute top-[6px] left-[6px] right-[6px] h-[2px] bg-white/30 z-50 rounded overflow-hidden">
+          <div
+            ref={progressRef}
+            className="h-full bg-white animate-progressBar transform origin-left"
+          />
         </div>
 
+        {/* 콘텐츠 */}
         {current?.type === "ad" ? (
           <AdViewer
             id={current.id}
@@ -60,8 +67,9 @@ const StoryLayout = ({ stories }) => {
         )}
       </div>
 
+      {/* 다음 스토리 미리보기 */}
       {next && (
-        <div className="hidden md:flex flex-col items-center justify-center">
+        <div className="w-[28%] aspect-[9/16] rounded-xl overflow-hidden border border-white/50">
           <StoryPreview
             username={next.username}
             profileImg={next.profileImg}
