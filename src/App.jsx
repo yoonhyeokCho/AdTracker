@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 import { sections } from "./data/sections";
 import StoryLayout from "./components/StoryLayout";
 import LoginPage from "./pages/LoginPage";
-import { preloadImages } from "./utils/preloadImages"; // 위에 만든 함수 import
+import { preloadImages } from "./utils/preloadImages";
+import { trackAdClick } from "./utils/adTrackers";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -17,10 +18,14 @@ function App() {
 
   useEffect(() => {
     if (!selectedSection || !user) return;
+
     const { stories, ads } = sections[selectedSection];
     const all = [...stories, ...ads];
+
     preloadImages(all).then(() => {
       setPreloadDone(true);
+
+      trackAdClick(user.name, selectedSection, NaN);
     });
   }, [selectedSection, user]);
 

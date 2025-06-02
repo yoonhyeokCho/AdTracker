@@ -1,6 +1,6 @@
 import { saveClickToAirtable } from "../api/airTableApi";
 
-export function trackAdClick(name, email, gender, type, adId) {
+export function trackAdClick(name, type, adId) {
   saveClickToAirtable({
     id: name,
     adId: adId,

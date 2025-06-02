@@ -17,10 +17,8 @@ const AdViewerPage = () => {
       setAd(found);
 
       const name = localStorage.getItem("name") || "anonymous";
-      const email = localStorage.getItem("email") || "unknown";
-      const gender = localStorage.getItem("gender") || "unknown";
 
-      trackAdClick(name, email, gender, section, adId);
+      trackAdClick(name, section, adId);
     }
   }, [section, adId]);
 
