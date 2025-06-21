@@ -23,7 +23,7 @@ export const saveClickToAirtable = async ({ id, adId, type }) => {
       },
       {
         headers: {
-          Authorization: AIRTABLE_API_KEY,
+          Authorization: `Bearer ${AIRTABLE_API_KEY}`,
           "Content-Type": "application/json",
         },
       }

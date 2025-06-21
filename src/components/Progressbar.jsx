@@ -4,9 +4,8 @@ const ProgressBar = ({ total, current }) => {
       {Array.from({ length: total }).map((_, idx) => (
         <div
           key={idx}
-          className={`h-1 flex-1 rounded-full ${
-            idx <= current ? "bg-white" : "bg-gray-700"
-          }`}
+          className={`h-1 flex-1 rounded-full ${idx <= current ? "bg-white" : "bg-gray-700"
+            }`}
         />
       ))}
     </div>

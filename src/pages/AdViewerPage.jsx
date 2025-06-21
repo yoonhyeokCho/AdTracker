@@ -6,8 +6,10 @@ import { trackAdClick } from "../utils/adTrackers";
 import detail_img1 from "../assets/detail_img1.png";
 import detail_img2 from "../assets/detail_img2.png";
 import detail_img3 from "../assets/detail_img3.png";
-import next_btn_img from "../assets/next_btn_img.png";
+
 import buy_img from "../assets/buy_img.png";
+import next_btn_img from "../assets/next_btn_img.png";
+
 
 const AdViewerPage = () => {
   const { section, adId } = useParams();
@@ -28,7 +30,6 @@ const AdViewerPage = () => {
   };
 
   const handleBuyNow = () => {
-    // 👇 추후 Airtable 저장 등 기능 추가 예정
     console.log("🛒 Buy Now clicked");
     window.close();
   };
@@ -49,33 +50,35 @@ const AdViewerPage = () => {
   if (!ad) return <div className="text-white">광고를 찾을 수 없습니다.</div>;
 
   return (
-    <div className="w-full h-screen bg-black flex items-center justify-center">
-      <div className="relative w-[360px] h-[640px] bg-black overflow-hidden">
-        {/* ✅ object-contain 으로 변경 */}
+    <div className="w-screen h-screen bg-black flex items-center justify-center relative">
+      <div className="w-full h-full max-w-[50vw] aspect-[9/16]">
         <img
           src={getCurrentImage()}
           alt={`상세 ${step}`}
-          className="w-full h-full object-contain"
+          className="w-full h-full object-contain pointer-events-none"
         />
+      </div>
 
+      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10">
         {step < 3 ? (
           <img
             src={next_btn_img}
-            alt="다음"
+            alt="Next"
             onClick={handleNext}
-            className="absolute bottom-4 right-4 w-16 cursor-pointer"
+            className="w-40 cursor-pointer"
           />
         ) : (
           <img
             src={buy_img}
             alt="Buy Now"
             onClick={handleBuyNow}
-            className="absolute bottom-4 right-4 w-20 cursor-pointer"
+            className="w-40 cursor-pointer"
           />
         )}
       </div>
     </div>
   );
+
 };
 
 export default AdViewerPage;

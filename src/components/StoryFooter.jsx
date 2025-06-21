@@ -1,4 +1,3 @@
-// StoryFooter.jsx
 const StoryFooter = ({ username }) => {
   return (
     <div className="absolute bottom-0 left-0 w-full px-3 py-2 bg-gradient-to-t from-black via-transparent to-transparent flex justify-between items-center gap-2">

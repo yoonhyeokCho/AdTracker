@@ -13,7 +13,11 @@ import story5_profile from "../assets/story5_profile.png";
 import story6_profile from "../assets/story6_profile.png";
 import ad1 from "../assets/ad1.png";
 import ad2 from "../assets/ad2.png";
-import profile from "../assets/profile.png";
+import ad3 from "../assets/ad3.png";
+import ad4 from "../assets/ad4.png";
+import ad5 from "../assets/ad5.png";
+import ad6 from "../assets/ad6.png";
+import ad_profile from "../assets/ad_profile.png";
 
 export const sections = {
   a: {
@@ -71,11 +75,10 @@ export const sections = {
       {
         id: "a-ad1",
         type: "ad",
-        username: "스폰서 A1",
-        profileImg: profile,
+        username: "SnowMouth",
+        profileImg: ad_profile,
         contentImg: ad1,
-        link: ad1,
-        time: "방금",
+        link: ad1
       },
     ],
   },
@@ -135,20 +138,18 @@ export const sections = {
       {
         id: "b-ad1",
         type: "ad",
-        username: "스폰서 B1",
-        profileImg: profile,
+        username: "SnowMouth",
+        profileImg: ad_profile,
         contentImg: ad1,
-        link: ad1,
-        time: "방금",
+        link: ad1
       },
       {
         id: "b-ad2",
         type: "ad",
-        username: "스폰서 B2",
-        profileImg: profile,
+        username: "SnowMouth",
+        profileImg: ad_profile,
         contentImg: ad2,
-        link: ad2,
-        time: "방금",
+        link: ad2
       },
     ],
   },
@@ -208,38 +209,34 @@ export const sections = {
       {
         id: "c-ad1",
         type: "ad",
-        username: "스폰서 C1",
-        profileImg: profile,
+        username: "SnowMouth",
+        profileImg: ad_profile,
         contentImg: ad1,
-        link: ad1,
-        time: "방금",
+        link: ad1
       },
       {
         id: "c-ad2",
         type: "ad",
-        username: "스폰서 C2",
-        profileImg: profile,
+        username: "SnowMouth",
+        profileImg: ad_profile,
         contentImg: ad2,
-        link: ad2,
-        time: "방금",
+        link: ad2
       },
       {
         id: "c-ad3",
         type: "ad",
         username: "스폰서 C3",
-        profileImg: profile,
-        contentImg: ad1,
-        link: ad1,
-        time: "방금",
+        profileImg: ad_profile,
+        contentImg: ad3,
+        link: ad3
       },
       {
         id: "c-ad4",
         type: "ad",
-        username: "스폰서 C4",
-        profileImg: profile,
-        contentImg: ad2,
-        link: ad2,
-        time: "방금",
+        username: "SnowMouth",
+        profileImg: ad_profile,
+        contentImg: ad4,
+        link: ad4
       },
     ],
   },
@@ -299,56 +296,50 @@ export const sections = {
       {
         id: "d-ad1",
         type: "ad",
-        username: "스폰서 D1",
-        profileImg: profile,
+        username: "SnowMouth",
+        profileImg: ad_profile,
         contentImg: ad1,
-        link: ad1,
-        time: "방금",
+        link: ad1
       },
       {
         id: "d-ad2",
         type: "ad",
-        username: "스폰서 D2",
-        profileImg: profile,
-        contentImg: ad1,
-        link: ad1,
-        time: "방금",
+        username: "SnowMouth",
+        profileImg: ad_profile,
+        contentImg: ad2,
+        link: ad2
       },
       {
         id: "d-ad3",
         type: "ad",
-        username: "스폰서 D3",
-        profileImg: profile,
-        contentImg: ad1,
-        link: ad1,
-        time: "방금",
+        username: "SnowMouth",
+        profileImg: ad_profile,
+        contentImg: ad3,
+        link: ad3
       },
       {
         id: "d-ad4",
         type: "ad",
-        username: "스폰서 D4",
-        profileImg: profile,
-        contentImg: ad1,
-        link: ad1,
-        time: "방금",
+        username: "SnowMouth",
+        profileImg: ad_profile,
+        contentImg: ad4,
+        link: ad4
       },
       {
         id: "d-ad5",
         type: "ad",
-        username: "스폰서 D5",
-        profileImg: profile,
-        contentImg: ad1,
-        link: ad1,
-        time: "방금",
+        username: "SnowMouth",
+        profileImg: ad_profile,
+        contentImg: ad5,
+        link: ad5
       },
       {
         id: "d-ad6",
         type: "ad",
-        username: "스폰서 D6",
-        profileImg: profile,
-        contentImg: ad1,
-        link: ad1,
-        time: "방금",
+        username: "SnowMouth",
+        profileImg: ad_profile,
+        contentImg: ad6,
+        link: ad6
       },
     ],
   },

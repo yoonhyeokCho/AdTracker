@@ -1,4 +1,3 @@
-// StoryViewer.jsx
 import StoryFooter from "./StoryFooter";
 
 const StoryViewer = ({ username, profileImg, contentImg, time }) => {
