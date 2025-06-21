@@ -1,4 +1,3 @@
-// utils/preloadImages.js
 export const preloadImages = (items) => {
   const promises = items.flatMap((item) => {
     return ["contentImg", "profileImg"]

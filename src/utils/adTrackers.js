@@ -1,9 +1,13 @@
-import { saveClickToAirtable } from "../api/airTableApi";
+import { saveClickToAirtable, incrementClickCount } from "../api/airTableApi";
 
-export function trackAdClick(name, type, adId) {
+export function trackAdClick(id, type, adId) {
   saveClickToAirtable({
-    id: name,
-    adId: adId,
-    type: type,
+    id,
+    adId,
+    type,
   });
+}
+
+export function trackAdDetailClick(id, type, adId) {
+  return incrementClickCount(id, adId, type);
 }

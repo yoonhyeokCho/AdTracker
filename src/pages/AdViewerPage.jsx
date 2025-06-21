@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { sections } from "../data/sections";
-import { trackAdClick } from "../utils/adTrackers";
+import { trackAdDetailClick } from "../utils/adTrackers";
 
 import detail_img1 from "../assets/detail_img1.png";
 import detail_img2 from "../assets/detail_img2.png";
@@ -15,25 +15,29 @@ const AdViewerPage = () => {
   const { section, adId } = useParams();
   const [ad, setAd] = useState(null);
   const [step, setStep] = useState(1);
+  const name = localStorage.getItem("name")
 
   useEffect(() => {
     const found = sections[section]?.ads.find((ad) => ad.id === adId);
     if (found) {
       setAd(found);
-      const name = localStorage.getItem("name") || "anonymous";
-      trackAdClick(name, section, adId);
+  
+      console.log("📍 상세페이지 진입 - trackAdDetailClick 실행");
+      trackAdDetailClick(name, section, adId);
     }
   }, [section, adId]);
-
+  
   const handleNext = () => {
+    console.log("➡️ 다음 클릭 - trackAdDetailClick 실행");
+    trackAdDetailClick(name, section, adId);
     if (step < 3) setStep(step + 1);
   };
-
-  const handleBuyNow = () => {
-    console.log("🛒 Buy Now clicked");
+  
+  const handleBuyNow = async () => {
+    console.log("🛒 사기 클릭 - trackAdDetailClick 실행");
+    await trackAdDetailClick(name, section, adId);
     window.close();
   };
-
   const getCurrentImage = () => {
     switch (step) {
       case 1:
