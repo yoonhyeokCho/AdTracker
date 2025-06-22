@@ -53,7 +53,7 @@ const StoryLayout = ({ stories }) => {
       {isEnd ? (
         <div className="w-full text-center text-white font-semibold leading-relaxed space-y-2">
           <div className="text-2xl">🎉 No more contents</div>
-          <div className="text-lg">설문조사로 돌아가주세요</div>
+          <div className="text-lg">설문조사로 돌아가 주세요</div>
         </div>
       ) : (
         <>
