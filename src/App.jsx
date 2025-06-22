@@ -45,7 +45,7 @@ function App() {
   });
 
   return (
-    <div className="flex justify-center items-center h-screen bg-black">
+    <div className="flex justify-center items-center h-screen bg-gray-800">
       <StoryLayout stories={content} />
     </div>
   );

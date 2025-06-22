@@ -48,8 +48,8 @@ const StoryLayout = ({ stories }) => {
 
 
   return (
-    <div className="w-screen max-w-[420px] sm:max-w-[480px] lg:max-w-[520px] xl:max-w-[600px] mx-auto flex justify-between items-center gap-3 px-2 py-6 min-h-screen bg-black">
-      <div className="w-[68%] aspect-[9/16] rounded-2xl overflow-hidden border-2 border-white bg-black relative">
+    <div className="w-screen max-w-[420px] sm:max-w-[480px] lg:max-w-[520px] xl:max-w-[600px] mx-auto flex justify-between items-center gap-3 px-2 py-6 min-h-screen bg-gray-800">
+      <div className="w-[68%] aspect-[9/16] rounded-2xl overflow-hidden border-2 border-white bg-gray-800 relative">
         <div className="absolute top-[6px] left-[6px] right-[6px] h-[2px] bg-white/30 z-50 rounded overflow-hidden">
           <div
             ref={progressRef}

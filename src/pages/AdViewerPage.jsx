@@ -7,8 +7,7 @@ import detail_img1 from "../assets/detail_img1.png";
 import detail_img2 from "../assets/detail_img2.png";
 import detail_img3 from "../assets/detail_img3.png";
 
-import buy_img from "../assets/buy_img.png";
-import next_btn_img from "../assets/next_btn_img.png";
+import buy from "../assets/buy.jpeg"
 
 
 const AdViewerPage = () => {
@@ -21,20 +20,16 @@ const AdViewerPage = () => {
     const found = sections[section]?.ads.find((ad) => ad.id === adId);
     if (found) {
       setAd(found);
-  
-      console.log("📍 상세페이지 진입 - trackAdDetailClick 실행");
       trackAdDetailClick(name, section, adId);
     }
   }, [section, adId]);
-  
+
   const handleNext = () => {
-    console.log("➡️ 다음 클릭 - trackAdDetailClick 실행");
     trackAdDetailClick(name, section, adId);
     if (step < 3) setStep(step + 1);
   };
-  
+
   const handleBuyNow = async () => {
-    console.log("🛒 사기 클릭 - trackAdDetailClick 실행");
     await trackAdDetailClick(name, section, adId);
     window.close();
   };
@@ -54,35 +49,39 @@ const AdViewerPage = () => {
   if (!ad) return <div className="text-white">광고를 찾을 수 없습니다.</div>;
 
   return (
-    <div className="w-screen h-screen bg-black flex items-center justify-center relative">
-      <div className="w-full h-full max-w-[50vw] aspect-[9/16]">
+    <div className="w-screen h-screen bg-gray-800 flex items-center justify-center">
+      <div className="relative w-[90vw] max-w-[420px] aspect-[9/16] bg-gray-800 overflow-hidden rounded-xl">
+        
+        {/* 이미지 자체: 비율 유지 + 전체 표시 */}
         <img
           src={getCurrentImage()}
           alt={`상세 ${step}`}
-          className="w-full h-full object-contain pointer-events-none"
+          className="absolute inset-0 w-full h-full object-contain z-0"
         />
-      </div>
-
-      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10">
-        {step < 3 ? (
-          <img
-            src={next_btn_img}
-            alt="Next"
-            onClick={handleNext}
-            className="w-40 cursor-pointer"
-          />
-        ) : (
-          <img
-            src={buy_img}
-            alt="Buy Now"
-            onClick={handleBuyNow}
-            className="w-40 cursor-pointer"
-          />
-        )}
+  
+        {/* 버튼: 항상 이미지 하단 중앙에 고정 */}
+        <div className="absolute bottom-0 left-0 w-full flex justify-center pb-4 z-10">
+          {step < 3 ? (
+            <button
+              onClick={handleNext}
+              className="w-14 h-14 rounded-full bg-white text-black text-xs font-bold shadow-md flex items-center justify-center hover:scale-105 transition"
+            >
+              다음 →
+            </button>
+          ) : (
+            <button
+              onClick={handleBuyNow}
+              className="flex items-center gap-2 px-5 py-2 rounded-full bg-white text-black font-semibold text-sm shadow-md hover:scale-105 transition whitespace-nowrap"
+            >
+              <img src={buy} alt="buy" className="w-5 h-5 object-contain" />
+              BUY NOW
+            </button>
+          )}
+        </div>
       </div>
     </div>
   );
-
+  
 };
 
 export default AdViewerPage;

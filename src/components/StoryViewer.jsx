@@ -2,7 +2,7 @@ import StoryFooter from "./StoryFooter";
 
 const StoryViewer = ({ username, profileImg, contentImg, time }) => {
   return (
-    <div className="relative w-full h-full bg-black">
+    <div className="relative w-full h-full bg-gray-800">
       <img
         src={contentImg}
         alt="story"
