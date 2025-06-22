@@ -225,7 +225,7 @@ export const sections = {
       {
         id: "c-ad3",
         type: "ad",
-        username: "스폰서 C3",
+        username: "SnowMouth",
         profileImg: ad_profile,
         contentImg: ad3,
         link: ad3
