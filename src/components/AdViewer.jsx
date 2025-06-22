@@ -28,7 +28,6 @@ const AdViewer = ({ id, section, contentImg, profileImg, username, setIsPaused }
     <div className="relative w-full h-full bg-black overflow-hidden">
       <img src={contentImg} className="w-full h-full object-cover" alt="ad" />
 
-      {/* 상단 프로필 */}
       <div className="absolute top-3 left-3 flex items-center gap-2 text-white z-10">
         <img
           src={profileImg}
@@ -41,12 +40,10 @@ const AdViewer = ({ id, section, contentImg, profileImg, username, setIsPaused }
         </div>
       </div>
 
-      {/* Sponsored */}
       <div className="absolute top-3 right-3 text-white text-xs bg-white/10 px-3 py-1 rounded">
         Sponsored
       </div>
 
-      {/* 버튼 */}
       <div className="absolute bottom-[6%] left-1/2 -translate-x-1/2 z-10">
         <button
           onClick={(e) => {
