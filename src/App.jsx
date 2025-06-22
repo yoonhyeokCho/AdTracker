@@ -9,6 +9,7 @@ function App() {
   const [user, setUser] = useState(null);
   const [selectedSection, setSelectedSection] = useState(null);
   const [preloadDone, setPreloadDone] = useState(false);
+  const [content, setContent] = useState([]);
 
   useEffect(() => {
     const options = ["a", "b", "c", "d"];
@@ -20,29 +21,36 @@ function App() {
     if (!selectedSection || !user) return;
 
     const { stories, ads } = sections[selectedSection];
-    const all = [...stories, ...ads];
+    const combined = [...stories];
 
-    preloadImages(all).then(() => {
+    ads.forEach((ad) => {
+      const insertIndex = Math.floor(Math.random() * (combined.length + 1));
+      combined.splice(insertIndex, 0, {
+        ...ad,
+        type: "ad",
+        section: selectedSection,
+      });
+    });
+
+    setContent(combined);
+
+    const firstFour = combined.slice(0, 4);
+    const remaining = combined.slice(4);
+
+    preloadImages(firstFour).then(() => {
       setPreloadDone(true);
 
-      trackAdClick(user.name, selectedSection, NaN);
+      setTimeout(() => {
+        preloadImages(remaining);
+      }, 1000);
     });
+
+    trackAdClick(user.name, selectedSection, NaN);
   }, [selectedSection, user]);
 
   if (!user) return <LoginPage onLogin={setUser} />;
   if (!selectedSection || !preloadDone)
     return <div className="text-white">로딩 중...</div>;
-
-  const { stories, ads } = sections[selectedSection];
-  const content = [...stories];
-  ads.forEach((ad) => {
-    const insertAt = Math.floor(Math.random() * (content.length + 1));
-    content.splice(insertAt, 0, {
-      ...ad,
-      type: "ad",
-      section: selectedSection,
-    });
-  });
 
   return (
     <div className="flex justify-center items-center h-screen bg-gray-800">
